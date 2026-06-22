@@ -13,10 +13,10 @@ async function fetchWeather() {
         return;
     }
 
-    const API_KEY = "YOUR_WEATHERAPI_KEY";
+    const API_KEY = "86ef6e5b0d22b148a9b5d40176b455bc";
 
     const endpoint =
-        `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${cityName}&aqi=no`;
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`;
 
     try {
 
@@ -25,17 +25,17 @@ async function fetchWeather() {
 
         console.log(weatherData);
 
-        if (weatherData.error) {
+        if (weatherData.cod != 200) {
             resultBox.innerHTML = "<p>City not found.</p>";
             return;
         }
 
         resultBox.innerHTML = `
-            <h2>${weatherData.location.name}</h2>
-            <p>🌡 Temperature: ${weatherData.current.temp_c} °C</p>
-            <p>☁ Weather: ${weatherData.current.condition.text}</p>
-            <p>💧 Humidity: ${weatherData.current.humidity}%</p>
-            <p>🌬 Wind Speed: ${weatherData.current.wind_kph} km/h</p>
+            <h2>${weatherData.name}</h2>
+            <p>🌡 Temperature: ${weatherData.main.temp} °C</p>
+            <p>☁ Weather: ${weatherData.weather[0].main}</p>
+            <p>💧 Humidity: ${weatherData.main.humidity}%</p>
+            <p>🌬 Wind Speed: ${weatherData.wind.speed} m/s</p>
         `;
 
     } catch (err) {
