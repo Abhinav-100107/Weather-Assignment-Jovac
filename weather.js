@@ -16,8 +16,8 @@ async function fetchWeather() {
     const API_KEY = "86ef6e5b0d22b148a9b5d40176b455bc";
 
     const endpoint =
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`;
-
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`;
+    
     try {
 
         const res = await fetch(endpoint);
