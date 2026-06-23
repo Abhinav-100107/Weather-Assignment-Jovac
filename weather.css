@@ -1,127 +1,218 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    min-height:100vh;
+    font-family: "Segoe UI", sans-serif;
 
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-
-    background: linear-gradient(
+    background:
+    linear-gradient(
         135deg,
-        #dbeafe,
-        #e0f2fe,
-        #f0f9ff
+        #070b1b,
+        #0f172a,
+        #111827
     );
+
+    color:white;
+    padding:30px;
 }
 
 .container{
-    width: 700px;
-    max-width: 90%;
+    max-width:1400px;
+    margin:auto;
 
-    background: #ffffff;
-    padding: 30px;
+    background:rgba(20,25,45,0.65);
 
-    text-align: center;
+    backdrop-filter:blur(20px);
 
-    border-radius: 20px;
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:25px;
+
+    padding:30px;
 
     box-shadow:
-        0 10px 30px rgba(0,0,0,0.12);
-
-    transition: 0.3s ease;
-
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-.container:hover{
-    transform: translateY(-3px);
+    0 20px 40px rgba(0,0,0,0.35);
 }
 
 .container h1{
-    color: #1e3a8a;
-    margin-bottom: 25px;
-    font-size: 2rem;
+    font-size:2.5rem;
+    margin-bottom:25px;
+    color:#ffffff;
 }
 
 .search-box{
-    margin-bottom: 15px;
+    display:flex;
+    gap:15px;
+    margin-bottom:30px;
 }
 
 .container input{
-    width: 100%;
-    padding: 12px;
+    flex:1;
 
-    border: 2px solid #d1d5db;
-    border-radius: 10px;
+    background:#161d35;
+    border:none;
 
-    outline: none;
+    color:white;
 
-    font-size: 16px;
+    padding:16px 20px;
 
-    margin-bottom: 15px;
+    border-radius:15px;
 
-    transition: 0.3s ease;
+    font-size:18px;
+
+    outline:none;
 }
 
-.container input:focus{
-    border-color: #3b82f6;
-    box-shadow: 0 0 8px rgba(59,130,246,0.3);
+.container input::placeholder{
+    color:#9ca3af;
 }
 
 .container button{
-    width: 100%;
-    padding: 12px;
+    width:180px;
 
-    border: none;
-    border-radius: 10px;
+    border:none;
 
-    cursor: pointer;
+    border-radius:15px;
 
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-
-    background: linear-gradient(
+    background:
+    linear-gradient(
         135deg,
-        #3b82f6,
-        #2563eb
+        #4f8cff,
+        #2962ff
     );
 
-    transition: 0.3s ease;
+    color:white;
+
+    font-size:18px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
 }
 
 .container button:hover{
-    transform: scale(1.02);
-
-    background: linear-gradient(
-        135deg,
-        #2563eb,
-        #1d4ed8
-    );
+    transform:translateY(-2px);
 }
 
-/* Weather Section */
+/* Weather Card */
 
 #weather{
-    margin-top: 25px;
+    margin-top:20px;
+
+    background:#171d33;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    margin-bottom:30px;
 }
 
 #weather h2{
-    color: #1e3a8a;
-    margin-bottom: 15px;
-    font-size: 2rem;
+    color:white;
+    font-size:2.2rem;
+    margin-bottom:15px;
 }
 
 #weather p{
-    margin: 10px 0;
-    font-size: 17px;
-    color: #374151;
+    font-size:18px;
+    margin:12px 0;
+    color:#d1d5db;
+}
+
+/* News Section */
+
+#news{
+    margin-top:20px;
+}
+
+#news h2{
+    color:white;
+    margin-bottom:25px;
+    font-size:1.8rem;
+}
+
+#newsContainer{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(350px,1fr));
+
+    gap:20px;
+}
+
+.news-card{
+    background:#171d33;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    transition:.3s;
+
+    border:1px solid
+    rgba(255,255,255,0.06);
+}
+
+.news-card:hover{
+    transform:translateY(-5px);
+
+    border-color:#3b82f6;
+}
+
+.news-card h3{
+    color:white;
+
+    font-size:18px;
+
+    line-height:1.5;
+
+    margin-bottom:15px;
+}
+
+.news-card a{
+    display:inline-block;
+
+    color:#60a5fa;
+
+    text-decoration:none;
+
+    font-weight:600;
+}
+
+.news-card a:hover{
+    color:#93c5fd;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#374151;
+    border-radius:20px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .search-box{
+        flex-direction:column;
+    }
+
+    .container button{
+        width:100%;
+    }
+
+    #newsContainer{
+        grid-template-columns:1fr;
+    }
 }
