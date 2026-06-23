@@ -20,10 +20,10 @@ async function fetchWeather() {
     }
 
     const WEATHER_API_KEY =
-        "YOUR_OPENWEATHER_API_KEY";
+        "957b488abec5f13f3409b072e2fad652";
 
     const GNEWS_API_KEY =
-        "YOUR_GNEWS_API_KEY";
+        "196840b35634afe21eecbcdcdf173ef9";
 
     const weatherEndpoint =
         `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${WEATHER_API_KEY}&units=metric`;
@@ -45,8 +45,8 @@ async function fetchWeather() {
         const newsData =
             await newsRes.json();
 
-        console.log(weatherData);
-        console.log(newsData);
+        console.log("Weather Data:", weatherData);
+        console.log("News Data:", newsData);
 
         if (weatherData.cod != 200) {
 
@@ -99,7 +99,7 @@ async function fetchWeather() {
                     <div class="news-card">
 
                         <img
-                            src="${article.image || ""}"
+                            src="${article.image || "https://via.placeholder.com/600x300?text=No+Image"}"
                             alt="News Image"
                             class="news-image"
                         >
@@ -109,14 +109,14 @@ async function fetchWeather() {
                         </h3>
 
                         <p>
-                            ${article.description || ""}
+                            ${article.description || "No description available."}
                         </p>
 
                         <a
                             href="${article.url}"
                             target="_blank"
                         >
-                            Read More
+                            Read More →
                         </a>
 
                     </div>
