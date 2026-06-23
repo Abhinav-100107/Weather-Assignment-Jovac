@@ -111,3 +111,40 @@ body{
     font-size: 17px;
     color: #374151;
 }
+
+#news{
+    margin-top: 30px;
+    text-align: left;
+}
+
+#news h2{
+    color: #1e3a8a;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.news-card{
+    background: #f8fafc;
+    padding: 12px;
+    margin-bottom: 12px;
+
+    border-radius: 10px;
+
+    border-left: 4px solid #2563eb;
+}
+
+.news-card h3{
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #1e293b;
+}
+
+.news-card a{
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.news-card a:hover{
+    text-decoration: underline;
+}
